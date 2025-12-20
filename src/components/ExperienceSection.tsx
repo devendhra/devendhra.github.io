@@ -10,7 +10,7 @@ const experiences = [
     duration: '5 months completed (6-month internship)',
     location: 'Remote',
     current: true,
-    description: 'Building a real-world Mutual Funds web application with production-level workflows.',
+    description: 'Building a real-world web application with production-level workflows.',
     responsibilities: [
       'Developing responsive frontend interfaces using React and Tailwind CSS',
       'Integrating backend services with Supabase for real-time data management',
