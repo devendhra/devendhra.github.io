@@ -10,7 +10,7 @@ import todo from "../assets/todo.png";
 import typing from "../assets/typing.png";
 import todo2 from "../assets/personaltodo.png";
 import weather from "../assets/weather.png";
-import portfolio from "../assets/weather.png";
+import portfolio from "../assets/portfolio.png";
 
 const projects = [
   
