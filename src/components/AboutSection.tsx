@@ -136,7 +136,7 @@ const AboutSection = () => {
                     </div>
                     <div className="w-24 h-24 rounded-full border border-border/50 flex items-center justify-center">
                       <motion.div
-                        className="w-16 h-16 rounded-full bg-primary/10"
+                        className="w-14 h-14 rounded-full bg-primary/10 bg-gradient-to-br from-primary to-primary/20"
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 3, repeat: Infinity }}
                       />

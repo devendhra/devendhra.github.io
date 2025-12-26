@@ -1,6 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Linkedin, Github, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, CheckCircle, AlertCircle , MapPin} from 'lucide-react';
 import { toast } from 'sonner';
 import emailjs from '@emailjs/browser';
 
@@ -23,9 +23,9 @@ const ContactSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   const SERVICE_ID = 'service_xfege24';
-const OWNER_TEMPLATE_ID = 'template_fedq4sq';
-const AUTO_REPLY_TEMPLATE_ID = 'template_iiwl7aq';
-const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
+  const OWNER_TEMPLATE_ID = 'template_fedq4sq';
+  const AUTO_REPLY_TEMPLATE_ID = 'template_iiwl7aq';
+  const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,70 +36,70 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    // 1️⃣ Send message to YOU (Owner)
-    await emailjs.send(
-      SERVICE_ID,
-      OWNER_TEMPLATE_ID,
-      {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      },
-      PUBLIC_KEY
-    );
+    try {
+      // 1️⃣ Send message to YOU (Owner)
+      await emailjs.send(
+        SERVICE_ID,
+        OWNER_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
 
-    // 2️⃣ Send auto-reply to USER
-    await emailjs.send(
-      SERVICE_ID,
-      AUTO_REPLY_TEMPLATE_ID,
-      {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      },
-      PUBLIC_KEY
-    );
+      // 2️⃣ Send auto-reply to USER
+      await emailjs.send(
+        SERVICE_ID,
+        AUTO_REPLY_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
 
-    toast.success('Message sent successfully!', {
-      description: "Thanks for reaching out. I'll get back to you soon.",
-      icon: <CheckCircle className="w-5 h-5 text-green-500" />,
-    });
+      toast.success('Message sent successfully!', {
+        description: "Thanks for reaching out. I'll get back to you soon.",
+        icon: <CheckCircle className="w-5 h-5 text-green-500" />,
+      });
 
-    setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
 
-  } catch (error) {
-    console.error(error);
+    } catch (error) {
+      console.error(error);
 
-    toast.error('Failed to send message', {
-      description: 'Please try again later.',
-      icon: <AlertCircle className="w-5 h-5 text-red-500" />,
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      toast.error('Failed to send message', {
+        description: 'Please try again later.',
+        icon: <AlertCircle className="w-5 h-5 text-red-500" />,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
 
   const socialLinks = [
     {
       name: 'Email',
-      href: 'mailto:devendhra@example.com',
+      href: 'mailto:devendhraalathur@gmail.com',
       icon: Mail,
       label: 'devendhra@example.com',
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/example',
+      href: 'https://www.linkedin.com/in/devendhra-a-2946182a4/',
       icon: Linkedin,
       label: 'linkedin.com/in/devendhra',
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/example',
+      href: 'https://github.com/devendhra',
       icon: Github,
       label: 'github.com/devendhra',
     },
@@ -108,7 +108,7 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
   return (
     <section id="contact" className="section-spacing relative overflow-hidden" ref={ref}>
       {/* Parallax Background Gradient */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"
         style={{ y }}
       />
@@ -121,7 +121,7 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.span 
+          <motion.span
             className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -242,7 +242,7 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col justify-center"
           >
-            <motion.div 
+            <motion.div
               className="glass-card rounded-3xl p-8 lg:p-10"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
@@ -276,7 +276,7 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
               </div>
 
               {/* Availability Status */}
-              <motion.div 
+              <motion.div
                 className="mt-8 flex items-center gap-3 p-4 rounded-xl bg-primary/10 border border-primary/20"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -290,6 +290,16 @@ const PUBLIC_KEY = 'GyyNr5F7em_VxFkMw';
                 <span className="text-sm text-foreground">
                   Currently available for freelance work & internships
                 </span>
+              </motion.div>
+              {/* Location Badge */}
+              <motion.div
+                className="flex items-center justify-center gap-2 mt-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35 }}
+              >
+                <MapPin className="w-4 h-4 text-primary" />
+                <span className="text-sm text-muted-foreground">Chennai, India</span>
               </motion.div>
             </motion.div>
           </motion.div>

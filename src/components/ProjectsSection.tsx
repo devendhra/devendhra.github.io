@@ -121,36 +121,6 @@ const projects = [
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [isHovered, setIsHovered] = useState(false);
-
-  // 3D Tilt Effect
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovered(false);
-  };
 
   return (
     <motion.article
@@ -159,109 +129,38 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.15 }}
-      style={{ perspective: 1000 }}
     >
-      <motion.div
-        className="glass-card rounded-3xl overflow-hidden glow-effect hoverable relative h-full flex flex-col"
-        style={{
-          rotateX: isHovered ? rotateX : 0,
-          rotateY: isHovered ? rotateY : 0,
-          transformStyle: "preserve-3d",
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
-        whileHover={{ scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-        {/* 3D Shine Effect */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none z-10"
-          style={{
-            background: `radial-gradient(circle at ${isHovered ? '50%' : '50%'} ${isHovered ? '50%' : '50%'}, rgba(255,255,255,0.15) 0%, transparent 50%)`,
-            opacity: isHovered ? 1 : 0,
-          }}
-          animate={{
-            background: isHovered
-              ? `radial-gradient(circle at ${(x.get() + 0.5) * 100}% ${(y.get() + 0.5) * 100}%, rgba(255,255,255,0.2) 0%, transparent 50%)`
-              : `radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 0%, transparent 50%)`,
-          }}
-        />
-
-        {/* Project Visual */}
-        <div
-          className={`relative h-48 md:h-56 overflow-hidden flex-shrink-0`}
-          style={{ transform: "translateZ(20px)" }}
-        >
-          {/* Project Image */}
-          <img
-            src={project.image}
+      <div className="glass-card rounded-3xl overflow-hidden h-full flex flex-col hover:border-primary/30 transition-colors duration-300">
+        {/* Project Image */}
+        <div className="relative h-48 md:h-56 overflow-hidden flex-shrink-0">
+          <img 
+            src={project.image} 
             alt={project.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-
+          
           {/* Gradient Overlay */}
           <div className={`absolute inset-0 bg-gradient-to-br ${project.color} mix-blend-overlay`} />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 
           {/* Project Number */}
-          <div
-            className="absolute top-0 right-3 text-gradient-gold text-5xl font-serif font-bold text-foreground/20"
-            style={{ transform: "translateZ(50px)" }}
-          >
+          <div className="absolute top-4 right-4 text-5xl font-serif font-bold text-foreground/20">
             0{project.id}
           </div>
-
-          {/* Hover Overlay */}
-          <motion.div
-            className="absolute inset-0 bg-background/90 backdrop-blur-sm flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            style={{ transform: "translateZ(60px)" }}
-          >
-            <div className="flex gap-4">
-              <motion.a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm hoverable"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink className="w-4 h-4" />
-                Live Demo
-              </motion.a>
-              <motion.a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground rounded-full font-medium text-sm hoverable"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github className="w-4 h-4" />
-                Code
-              </motion.a>
-            </div>
-          </motion.div>
         </div>
 
         {/* Project Info */}
-        <div className="p-6 md:p-8 flex-1 flex flex-col" style={{ transform: "translateZ(10px)" }}>
-          <div className="flex items-start justify-between mb-4">
-            <h3 className="text-xl font-serif font-semibold text-foreground group-hover:text-primary transition-colors">
-              {project.name}
-            </h3>
-            <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0" />
-          </div>
+        <div className="p-6 md:p-8 flex-1 flex flex-col">
+          <h3 className="text-xl font-serif font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+            {project.name}
+          </h3>
 
-          <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
             {project.description}
           </p>
 
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mt-auto">
+          <div className="flex flex-wrap gap-2 mb-5">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
@@ -271,18 +170,30 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               </span>
             ))}
           </div>
-        </div>
 
-        {/* 3D Edge Highlight */}
-        <motion.div
-          className="absolute inset-0 rounded-3xl pointer-events-none"
-          style={{
-            boxShadow: isHovered
-              ? 'inset 0 0 30px rgba(255,255,255,0.1), 0 25px 50px -12px rgba(0,0,0,0.4)'
-              : 'none',
-          }}
-        />
-      </motion.div>
+          {/* Action Buttons */}
+          <div className="flex gap-3 mt-auto">
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Live
+            </a>
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium border border-border text-foreground rounded-full hover:bg-secondary transition-colors"
+            >
+              <Github className="w-3.5 h-3.5" />
+              Code
+            </a>
+          </div>
+        </div>
+      </div>
     </motion.article>
   );
 };
@@ -290,12 +201,12 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-
+  
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
-
+  
   const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
@@ -315,12 +226,12 @@ const ProjectsSection = () => {
             Featured <span className="text-gradient-gold">Projects</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            A selection of projects that showcase my expertise in building modern,
+            A selection of projects that showcase my expertise in building modern, 
             scalable web applications with elegant user interfaces.
           </p>
         </motion.div>
 
-        {/* Projects Grid - Equal height cards */}
+        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
@@ -328,7 +239,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Parallax decorative element */}
-        <motion.div
+        <motion.div 
           className="absolute -right-20 top-1/2 w-40 h-40 border border-primary/10 rounded-full hidden lg:block"
           style={{ y }}
         />

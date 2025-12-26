@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, FileDown } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, FileDown ,MapPin} from 'lucide-react';
 import TypingAnimation from './TypingAnimation';
 
 const HeroSection = () => {
