@@ -10,7 +10,7 @@ const HeroSection = () => {
   const handleResumeClick = () => {
     // This will both download and open the resume
     // For now using a placeholder - user should replace with actual resume URL
-    const resumeUrl = '/resume.pdf';
+    const resumeUrl = '/resume1.pdf';
     
     // Open in new tab
     window.open(resumeUrl, '_blank');
