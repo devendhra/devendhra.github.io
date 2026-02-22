@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface TypingAnimationProps {
@@ -55,4 +55,4 @@ const TypingAnimation = ({
   );
 };
 
-export default TypingAnimation;
+export default React.memo(TypingAnimation);

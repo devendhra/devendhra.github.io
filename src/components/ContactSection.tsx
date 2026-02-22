@@ -139,7 +139,7 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -164,7 +164,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors hoverable"
+                  className="w-full px-3 py-3 md:px-4 md:py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors hoverable"
                   placeholder="Your name"
                 />
               </motion.div>
@@ -185,7 +185,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors hoverable"
+                  className="w-full px-3 py-3 md:px-4 md:py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors hoverable"
                   placeholder="your@email.com"
                 />
               </motion.div>
@@ -206,7 +206,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none hoverable"
+                  className="w-full px-3 py-3 md:px-4 md:py-4 bg-secondary/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none hoverable"
                   placeholder="Your message..."
                 />
               </motion.div>
@@ -247,32 +247,31 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-start md:justify-center "
           >
             <motion.div
-              className="glass-card rounded-3xl p-8 lg:p-10"
+              className="glass-card rounded-3xl p-4 md:p-8 lg:p-10"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="text-xl font-serif font-semibold mb-8">
+              <h3 className="text-lg md:text-xl font-serif font-semibold mb-8">
                 Other ways to reach me
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors group hoverable"
+                    className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors group hoverable"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    whileHover={{ x: 8 }}
                   >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <div className="flex items-center justify-center md:hidden lg:flex w-12 h-12 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
                       <link.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -285,16 +284,14 @@ const ContactSection = () => {
 
               {/* Availability Status */}
               <motion.div
-                className="mt-8 flex items-center gap-3 p-4 rounded-xl bg-primary/10 border border-primary/20"
+                className="mt-6 md:mt-8 flex items-center gap-3 p-4 rounded-xl bg-primary/10 border border-primary/20"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <motion.div
+                <div
                   className="w-3 h-3 rounded-full bg-green-500"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
                 />
                 <span className="text-sm text-foreground">
                   Currently available for freelance work & internships
@@ -302,13 +299,13 @@ const ContactSection = () => {
               </motion.div>
               {/* Location Badge */}
               <motion.div
-                className="flex items-center justify-center gap-2 mt-5"
+                className="flex items-center justify-center gap-1 md:gap-2 mt-4 md:mt-5"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: 0.35 }}
               >
-                <MapPin className="w-4 h-4 text-primary" />
+                <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Chennai, India</span>
               </motion.div>
             </motion.div>

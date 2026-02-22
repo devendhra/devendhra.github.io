@@ -209,7 +209,7 @@ const HeroSection = () => {
       {/* Scroll Indicator */}
       <motion.button
         onClick={scrollToAbout}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors hoverable"
+        className="absolute bottom-0 left-[43%]  md:bottom-10 md:left-[47%] lg:left-[48%] mt-4 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors hoverable"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{
@@ -217,7 +217,7 @@ const HeroSection = () => {
           y: { duration: 2, repeat: Infinity },
         }}
       >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-xs tracking-widest uppercase ">Scroll</span>
         <ArrowDown className="w-4 h-4" />
       </motion.button>
     </section>

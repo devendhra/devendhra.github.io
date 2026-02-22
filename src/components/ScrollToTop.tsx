@@ -27,7 +27,6 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1, boxShadow: '0 0 30px hsl(var(--primary) / 0.5)' }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           aria-label="Scroll to top"

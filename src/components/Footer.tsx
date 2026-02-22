@@ -24,7 +24,6 @@ const Footer = () => {
           <motion.button
             onClick={scrollToTop}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors hoverable"
-            whileHover={{ y: -2 }}
           >
             <ArrowUp className="w-4 h-4" />
             Back to top

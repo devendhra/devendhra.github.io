@@ -24,7 +24,6 @@ const ThemeToggle = () => {
     <motion.button
       onClick={toggleTheme}
       className="relative w-12 h-12 rounded-full glass-card border border-border/50 flex items-center justify-center hoverable overflow-hidden"
-      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
     >

@@ -97,7 +97,6 @@ const ExperienceSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Experience Timeline */}
           <div>
             <motion.h3
               className="text-xl font-serif font-semibold mb-8 flex items-center gap-3"

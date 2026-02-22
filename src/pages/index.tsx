@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import CustomCursor from '@/components/CustomCursor';
 import Navigation from '@/components/Navigation';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import SkillsSection from '@/components/SkillsSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import ExperienceSection from '@/components/ExperienceSection';
-import ContactSection from '@/components/ContactSection';
+const HeroSection = lazy(() => import('@/components/HeroSection'));
+const AboutSection = lazy(() => import('@/components/AboutSection'));
+const SkillsSection = lazy(() => import('@/components/SkillsSection'));
+const ProjectsSection = lazy(() => import('@/components/ProjectsSection'));
+const ExperienceSection = lazy(() => import('@/components/ExperienceSection'));
+const ContactSection = lazy(() => import('@/components/ContactSection'));
 import Footer from '@/components/Footer';
 import PageLoader from '@/components/PageLoader';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -50,12 +50,24 @@ const Index = () => {
 
         {/* Main Content */}
         <main>
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <ExperienceSection />
-          <ContactSection />
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <HeroSection />
+          </Suspense>
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <AboutSection />
+          </Suspense>
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <SkillsSection />
+          </Suspense>
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <ProjectsSection />
+          </Suspense>
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <ExperienceSection />
+          </Suspense>
+          <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+            <ContactSection />
+          </Suspense>
         </main>
 
         {/* Footer */}
