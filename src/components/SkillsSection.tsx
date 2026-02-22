@@ -1,4 +1,4 @@
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 const skillCategories = [
@@ -48,11 +48,8 @@ const skillCategories = [
   level: number;
   delay: number;
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <div ref={ref} className="group">
+    <div className="group">
       {/* Label */}
       <div className="flex justify-between items-center mb-2">
         <span className="text-sm font-medium text-foreground">
@@ -71,7 +68,8 @@ const skillCategories = [
            bg-gradient-to-r from-primary via-purple-500 to-fuchsia-500
            shadow-[0_0_12px_rgba(168,85,247,0.6)]"
           initial={{ width: 0 }}
-          animate={isInView ? { width: `${level}%` } : {}}
+          whileInView={{ width: `${level}%` }}
+          viewport={{ once: true }}
           transition={{
             duration: 1.2,
             delay,
@@ -85,7 +83,6 @@ const skillCategories = [
 
 const SkillsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -108,13 +105,15 @@ const SkillsSection = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.span
             className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Expertise
@@ -131,7 +130,8 @@ const SkillsSection = () => {
               key={category.title}
               className="glass-card rounded-2xl p-8 glow-effect"
               initial={{ opacity: 0, y: 60, rotateX: -10 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{
                 duration: 0.8,
                 delay: categoryIndex * 0.2,

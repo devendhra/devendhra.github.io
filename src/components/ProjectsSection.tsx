@@ -1,4 +1,4 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
@@ -159,15 +159,12 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
   return (
     <motion.article
-      ref={ref}
       className="group relative h-full"
       initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.8, delay: index * 0.15 }}
     >
       <div className="glass-card rounded-3xl overflow-hidden h-full flex flex-col hover:border-primary/30 transition-colors duration-300">
@@ -240,7 +237,6 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
 
 const ProjectsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -256,7 +252,8 @@ const ProjectsSection = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-4">
@@ -288,7 +285,8 @@ const ProjectsSection = () => {
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <a

@@ -1,4 +1,4 @@
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Briefcase, Calendar, MapPin, Eye, X } from 'lucide-react';
 
@@ -49,7 +49,6 @@ const achievements = [
 
 const ExperienceSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [viewingCertificate, setViewingCertificate] = useState<string | null>(null);
   
   const { scrollYProgress } = useScroll({
@@ -79,13 +78,15 @@ const ExperienceSection = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.span 
             className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Journey
@@ -101,7 +102,8 @@ const ExperienceSection = () => {
             <motion.h3
               className="text-xl font-serif font-semibold mb-8 flex items-center gap-3"
               initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
               <Briefcase className="w-5 h-5 text-primary" />
@@ -113,7 +115,8 @@ const ExperienceSection = () => {
               <motion.div 
                 className="absolute left-4 top-0 bottom-0 w-px bg-border"
                 initial={{ scaleY: 0 }}
-                animate={isInView ? { scaleY: 1 } : {}}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1, delay: 0.3 }}
                 style={{ originY: 0 }}
               />
@@ -123,7 +126,8 @@ const ExperienceSection = () => {
                   key={exp.id}
                   className="relative pl-12 pb-8 last:pb-0"
                   initial={{ opacity: 0, x: -40 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.7, delay: 0.4 + index * 0.2 }}
                 >
                   {/* Timeline Dot */}
@@ -134,7 +138,8 @@ const ExperienceSection = () => {
                         : 'border-border bg-background'
                     }`}
                     initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : {}}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.4, delay: 0.5 + index * 0.2 }}
                   >
                     {exp.current && (
@@ -186,7 +191,8 @@ const ExperienceSection = () => {
                           key={i} 
                           className="flex items-start gap-2 text-sm text-muted-foreground"
                           initial={{ opacity: 0, x: -10 }}
-                          animate={isInView ? { opacity: 1, x: 0 } : {}}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
                           transition={{ duration: 0.4, delay: 0.7 + i * 0.1 }}
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
@@ -205,7 +211,8 @@ const ExperienceSection = () => {
             <motion.h3
               className="text-xl font-serif font-semibold mb-8 flex items-center gap-3"
               initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
               <span className="text-2xl">🏆</span>
@@ -218,7 +225,8 @@ const ExperienceSection = () => {
                   key={achievement.id}
                   className="glass-card rounded-2xl p-6 glow-effect hoverable"
                   initial={{ opacity: 0, x: 40, rotateY: -10 }}
-                  animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ 
                     duration: 0.7, 
                     delay: 0.3 + index * 0.15,

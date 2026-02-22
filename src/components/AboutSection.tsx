@@ -1,10 +1,9 @@
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Award, MapPin } from 'lucide-react';
 
 const AboutSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,14 +32,16 @@ const AboutSection = () => {
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Section Label */}
             <motion.span
               className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-4"
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5 }}
             >
               About Me
@@ -56,7 +57,8 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 I'm Devendhra, a highly motivated full-stack developer with an insatiable curiosity for 
@@ -65,7 +67,8 @@ const AboutSection = () => {
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 I enjoy presenting ideas, crafting intuitive interfaces, and continuously pushing 
@@ -78,7 +81,8 @@ const AboutSection = () => {
             <motion.div
               className="mt-10 glass-card rounded-2xl p-6"
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="flex items-start gap-4">
@@ -104,7 +108,8 @@ const AboutSection = () => {
           {/* Right Content - Stats Grid with Parallax */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{ y }}
           >
@@ -114,7 +119,8 @@ const AboutSection = () => {
                   key={stat.label}
                   className="glass-card rounded-2xl p-8 glow-effect hoverable"
                   initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ 
                     duration: 0.6, 
                     delay: 0.4 + index * 0.15,
