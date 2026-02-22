@@ -89,11 +89,11 @@ const ContactSection = () => {
       name: 'Email',
       href: 'mailto:devendhraalathur@gmail.com',
       icon: Mail,
-      label: 'devendhra@example.com',
+      label: 'devendhraalathur@gmail.com',
     },
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/devendhra-a-2946182a4/',
+      href: 'https://www.linkedin.com/in/devendhra',
       icon: Linkedin,
       label: 'linkedin.com/in/devendhra',
     },

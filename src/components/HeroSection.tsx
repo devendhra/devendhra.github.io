@@ -187,8 +187,8 @@ const HeroSection = () => {
         >
           {[
             { icon: Github, href: 'https://github.com/devendhra', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/devendhra-a-2946182a4/', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:devendhraalthur@gmail.com', label: 'Email' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/devendhra', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:devendhraalathur@gmail.com', label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
             <motion.a
               key={label}

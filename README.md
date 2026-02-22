@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+🌐 Devendhra A — Full-Stack Developer Portfolio
 
-## Project info
+🔗 Live: https://devendhra.me
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern, performance-focused personal portfolio showcasing my projects, skills, and experience as a full-stack developer. Built with attention to clean UI, smooth interactions, and scalability.
 
-## How can I edit this code?
+✨ Features
 
-There are several ways of editing your application.
+⚡ Fast & Responsive UI — Optimized for all screen sizes
 
-**Use Lovable**
+🎨 Modern Design — Clean layout with subtle animations
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+🖱️ Custom Cursor Experience
 
-Changes made via Lovable will be committed automatically to this repo.
+⏳ Page Loader & Smooth Transitions
 
-**Use your preferred IDE**
+📜 SEO Optimized — Dynamic title & meta description
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🧭 Smooth Navigation & Scroll-to-Top
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🧩 Modular Component Architecture
 
-Follow these steps:
+🧠 Sections Included
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Hero Section — Introduction & branding
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+About Me — Personal background and journey
 
-# Step 3: Install the necessary dependencies.
-npm i
+Skills — Technologies and tools I work with
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Projects — Real-world applications with live demos
+
+Experience — Internships & professional work
+
+Contact — Easy way to reach me
+
+Footer — Social links & credits
+
+🛠️ Tech Stack
+
+Frontend: React.js / Next.js
+
+Styling: Tailwind CSS
+
+Animations: CSS transitions & custom effects
+
+State Management: React Hooks
+
+SEO: Dynamic meta tags
+
+Deployment: Netlify / Vercel
+
+📁 Project Structure
+src/
+├── components/
+│   ├── Navigation
+│   ├── HeroSection
+│   ├── AboutSection
+│   ├── SkillsSection
+│   ├── ProjectsSection
+│   ├── ExperienceSection
+│   ├── ContactSection
+│   ├── Footer
+│   ├── CustomCursor
+│   ├── PageLoader
+│   └── ScrollToTop
+├── pages/
+│   └── index.jsx
+└── styles/
+🚀 Getting Started Locally
+# Clone the repository
+git clone https://github.com/devendhra/portfolio-1.git
+
+# Navigate into the project
+cd portfolio-1
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-```
+📌 Purpose
 
-**Edit a file directly in GitHub**
+This portfolio is designed to:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Showcase real-world projects
 
-**Use GitHub Codespaces**
+Highlight frontend & full-stack skills
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Demonstrate clean code and architecture
 
-## What technologies are used for this project?
+Serve as a professional digital identity
 
-This project is built with:
+📬 Contact
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If you’d like to collaborate, hire, or just connect:
 
-## How can I deploy this project?
+🌍 Portfolio: https://devendhra.me
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+💼 GitHub: https://github.com/devendhra
 
-## Can I connect a custom domain to my Lovable project?
+🔗 LinkedIn: https://www.linkedin.com/in/devendhra
 
-Yes, you can!
+🧑‍💻 Author
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Devendhra A
+Full-Stack Developer | Building elegant, scalable web experiences

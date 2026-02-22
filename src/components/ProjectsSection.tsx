@@ -11,6 +11,8 @@ import typing from "../assets/typing.png";
 import todo2 from "../assets/personaltodo.png";
 import weather from "../assets/weather.png";
 import portfolio from "../assets/portfolio.png";
+import clubio from "../assets/club.png";
+import convox from "../assets/convox.png";
 
 const projects = [
   
@@ -32,9 +34,47 @@ const projects = [
     color: 'from-purple-500/30 to-indigo-500/30',
     image: zapify,
   },
-
-{
+  {
   id: 2,
+  name: 'Club IO – Event Management Platform',
+  description:
+    'A modern event management SaaS platform for clubs to create, manage, and track events with QR-based check-ins and real-time updates.',
+  techStack: [
+    'Next.js',
+    'TypeScript',
+    'Tailwind CSS',
+    'Supabase',
+    'Zustand',
+    'React Query',
+  ],
+  problem:
+    'Clubs struggle to manage events, registrations, and attendance efficiently. Club IO centralizes event workflows with automation and real-time data.',
+  live: 'https://clubio.netlify.app/',
+  github: 'https://github.com/devendhra/club',
+  color: 'from-emerald-500/30 to-teal-500/30',
+  image: clubio
+},
+{
+  id: 3,
+  name: 'Convox – Real-Time Chat Application',
+  description:
+    'A real-time chat application with authentication, live messaging, and a clean, modern UI powered by Supabase.',
+  techStack: [
+    'Next.js',
+    'TypeScript',
+    'Tailwind CSS',
+    'Supabase',
+  ],
+  problem:
+    'Building scalable real-time chat systems is complex. Convox simplifies real-time communication using Supabase with a smooth user experience.',
+  live: 'https://convox-kappa.vercel.app/',
+  github: 'https://github.com/devendhra/convox',
+  color: 'from-indigo-500/30 to-fuchsia-500/30',
+  image: convox
+},
+  
+{
+  id: 4,
   name: 'Salesforce Landing Page Clone',
   description:
     'A responsive clone of Salesforce’s official landing page, built with a modern UI approach, smooth hover effects, and mobile-first layout.',
@@ -47,7 +87,7 @@ const projects = [
   image: salesforce,
 },
 {
-  id: 3,
+  id: 5,
   name: 'AI-Powered To-Do App',
   description:
     'A clean and intuitive to-do application with task management features and AI integration for enhanced productivity.',
@@ -60,7 +100,7 @@ const projects = [
   image: todo,
 },
 {
-  id: 4,
+  id: 6,
   name: 'Typing Speed Test Application',
   description:
     'A functional typing speed test app featuring real-time WPM calculation, countdown timer, and dynamically generated words.',
@@ -74,7 +114,7 @@ const projects = [
 },
 
 {
-  id: 5,
+  id: 7,
   name: 'Personal Portfolio Website',
   description:
     'A dynamic and responsive portfolio website showcasing projects, skills, and experience with smooth animations and modern design.',
@@ -88,7 +128,7 @@ const projects = [
 },
 
 {
-  id: 6,
+  id: 8,
   name: "Skywatcher’s Companion",
   description:
     'A real-time weather forecasting application providing hourly updates, location-based tracking, and detailed weather metrics.',
@@ -102,7 +142,7 @@ const projects = [
 },
 
 {
-  id: 7,
+  id: 9,
   name: 'Task Manager Application',
   description:
     'An advanced task management application featuring priority levels, task categories, and local storage persistence.',
