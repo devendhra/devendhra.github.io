@@ -2,8 +2,6 @@ import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'fram
 import { useRef, useState } from 'react';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
-// import projectMutualFund from 'public/';
-// import projectPortfolioBuilder from '@assets';
 import zapify from "../assets/zapify.png";
 import salesforce from "../assets/salesforce.png"
 import todo from "../assets/todo.png";
@@ -13,6 +11,7 @@ import weather from "../assets/weather.png";
 import portfolio from "../assets/portfolio.png";
 import clubio from "../assets/club.png";
 import convox from "../assets/convox.png";
+import urbannest from "../assets/urbannest.png";
 
 const projects = [
   
@@ -72,9 +71,33 @@ const projects = [
   color: 'from-indigo-500/30 to-fuchsia-500/30',
   image: convox
 },
-  
-{
+  {
   id: 4,
+  name: 'Urban Nest – Full Stack Real Estate Platform',
+  description:
+    'A full-stack real estate web platform that enables users to explore properties, contact owners, and book viewings, while allowing admins to manage listings through a secure dashboard.',
+  techStack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Mongoose',
+    'JWT',
+    'Nodemailer',
+    'Multer',
+  ],
+  problem:
+    'Traditional property listing platforms often lack proper management tools, seamless communication, and a clean user experience. Urban Nest solves this by providing a modern, role-based real estate system with secure authentication, property management, and direct communication between users and property owners.',
+  live: 'https://urban-nest-brown.vercel.app/',
+  github: 'https://github.com/devendhra/urban-nest',
+  color: 'from-sky-500/30 to-blue-600/30',
+  image: urbannest,
+},
+{
+  id: 5,
   name: 'Salesforce Landing Page Clone',
   description:
     'A responsive clone of Salesforce’s official landing page, built with a modern UI approach, smooth hover effects, and mobile-first layout.',
@@ -87,7 +110,7 @@ const projects = [
   image: salesforce,
 },
 {
-  id: 5,
+  id: 6,
   name: 'AI-Powered To-Do App',
   description:
     'A clean and intuitive to-do application with task management features and AI integration for enhanced productivity.',
@@ -100,7 +123,7 @@ const projects = [
   image: todo,
 },
 {
-  id: 6,
+  id: 7,
   name: 'Typing Speed Test Application',
   description:
     'A functional typing speed test app featuring real-time WPM calculation, countdown timer, and dynamically generated words.',
@@ -114,7 +137,7 @@ const projects = [
 },
 
 {
-  id: 7,
+  id: 8,
   name: 'Personal Portfolio Website',
   description:
     'A dynamic and responsive portfolio website showcasing projects, skills, and experience with smooth animations and modern design.',
@@ -128,7 +151,7 @@ const projects = [
 },
 
 {
-  id: 8,
+  id: 9,
   name: "Skywatcher’s Companion",
   description:
     'A real-time weather forecasting application providing hourly updates, location-based tracking, and detailed weather metrics.',
@@ -142,7 +165,7 @@ const projects = [
 },
 
 {
-  id: 9,
+  id: 10,
   name: 'Task Manager Application',
   description:
     'An advanced task management application featuring priority levels, task categories, and local storage persistence.',
