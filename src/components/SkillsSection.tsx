@@ -20,7 +20,7 @@ const skillCategories = [
     skills: [
       { name: 'Node.js', level: 90 },
       { name: 'Supabase', level: 85 },
-      { name: 'REST APIs', level: 85 },
+      { name: 'MongoDB', level: 75 },
       { name: 'Postgres', level: 80 },
       { name: 'drizzle', level: 80 },
       { name: 'Tanstack-Query', level: 80 },
