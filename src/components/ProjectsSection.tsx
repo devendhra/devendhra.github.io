@@ -12,6 +12,7 @@ import portfolio from "../assets/portfolio.png";
 import clubio from "../assets/club.png";
 import convox from "../assets/convox.png";
 import urbannest from "../assets/urbannest.png";
+import roomease from "../assets/roomease.png";
 
 const projects = [
   
@@ -96,8 +97,29 @@ const projects = [
   color: 'from-sky-500/30 to-blue-600/30',
   image: urbannest,
 },
+  {
+    id: 5, 
+    name: 'RoomEase – Smart Hotel Booking & Management Platform',
+    description:
+      'A premium hotel booking and operations management dashboard featuring glassmorphic designs, real-time housekeeping grids, and interactive revenue charts.',
+    techStack: [
+      'Java',
+      'Spring Boot',
+      'Spring Security',
+      'MySQL',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+    ],
+    problem:
+      'Standard hotel management systems are often fragmented or visually outdated. RoomEase solves this by providing a unified, high-fidelity experience with specialized workflows for guests, front-desk staff, and administrators.',
+    live: 'https://roomease-hotel.vercel.app/',
+    github: 'https://github.com/devendhra/roomease-hotel.git', 
+    color: 'from-blue-500/30 to-cyan-500/30',
+    image: roomease,
+  },
 {
-  id: 5,
+  id: 6,
   name: 'Salesforce Landing Page Clone',
   description:
     'A responsive clone of Salesforce’s official landing page, built with a modern UI approach, smooth hover effects, and mobile-first layout.',
@@ -110,7 +132,7 @@ const projects = [
   image: salesforce,
 },
 {
-  id: 6,
+  id: 7,
   name: 'AI-Powered To-Do App',
   description:
     'A clean and intuitive to-do application with task management features and AI integration for enhanced productivity.',
@@ -123,7 +145,7 @@ const projects = [
   image: todo,
 },
 {
-  id: 7,
+  id: 8,
   name: 'Typing Speed Test Application',
   description:
     'A functional typing speed test app featuring real-time WPM calculation, countdown timer, and dynamically generated words.',
@@ -137,7 +159,7 @@ const projects = [
 },
 
 {
-  id: 8,
+  id: 9,
   name: 'Personal Portfolio Website',
   description:
     'A dynamic and responsive portfolio website showcasing projects, skills, and experience with smooth animations and modern design.',
@@ -151,7 +173,7 @@ const projects = [
 },
 
 {
-  id: 9,
+  id: 10,
   name: "Skywatcher’s Companion",
   description:
     'A real-time weather forecasting application providing hourly updates, location-based tracking, and detailed weather metrics.',
@@ -165,7 +187,7 @@ const projects = [
 },
 
 {
-  id: 10,
+  id: 11,
   name: 'Task Manager Application',
   description:
     'An advanced task management application featuring priority levels, task categories, and local storage persistence.',
