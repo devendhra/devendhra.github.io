@@ -14,8 +14,8 @@ const AboutSection = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const stats = [
-    { label: 'CGPA', value: '9.13', sublabel: 'Up to 4th Semester' },
-    { label: 'Year', value: '3rd', sublabel: 'Graduating 2027' },
+    { label: 'CGPA', value: '9.04', sublabel: 'Up to 5th Semester' },
+    { label: 'Year', value: '4th', sublabel: 'Graduating 2027' },
     { label: 'Projects', value: '10+', sublabel: 'Completed' },
   ];
 
